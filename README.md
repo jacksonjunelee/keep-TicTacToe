@@ -1,6 +1,7 @@
 # KeepTicTacToe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
+To install angular-cli and run ng commands run: npm install -g @angular/cli To install the dependencies run: npm install
 
 ## Development server
 
