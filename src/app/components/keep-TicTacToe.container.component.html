@@ -1,10 +1,29 @@
-<h1>{{ currentPlayer }}'s Turn</h1>
-<div class="flex-container">
-  <div *ngFor="let index of [0,1,2,3,4,5,6,7,8]">
-    <cell
-      [index]="index"
+<div class="game">
+  <div class="moves">
+    <h1 class="header">Moves</h1>
+    <ul class="">
+      <li *ngFor="let move of moves">{{move}}</li>
+    </ul>
+    <button *ngIf="winnerFound || !playableCells" type="button" name="button" (click)="restart()">Play Again?</button>
+  </div>
+  <div class="board">
+    <h1 class="header">{{ currentPlayer }}'s Turn</h1>
+    <div class="flex-container">
+      <div *ngFor="let index of [0,1,2,3,4,5,6,7,8]">
+        <cell
+          [index]="index"
+          [values]="values"
+          [players]="players"
+          [currentPlayer]="currentPlayer"
+          [winnerFound]="winnerFound"
+          (cellValue)="updateValue($event, index)"
+        ></cell>
+      </div>
+    </div>
+
+    <scoreboard
       [players]="players"
-      [currentPlayer]="currentPlayer"
-    ></cell>
+      [score]="score"
+    ></scoreboard>
   </div>
 </div>

@@ -13,10 +13,44 @@ body {
   text-align: center;
 }
 
+ul {
+  width: 135px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.header {
+  font-size: 3em;
+}
+
+.game {
+  display: flex;
+  padding: 30px;
+
+  .moves {
+    padding: 0 1rem;
+  }
+
+  .board {
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 157px;
+      margin: 0 auto;
+
+      div {
+        flex: 0 0 33%;
+      }
+    }
+  }
+}
+
 .cell {
   border: 1px solid black;
   width: 50px;
   height: 50px;
+  position: relative;
 }
 
 .cell-content {
@@ -26,14 +60,9 @@ body {
   justify-content: center;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 157px;
-  margin: 0 auto;
-
-  div {
-    flex: 0 0 33%;
-  }
+.cell-marker {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  left: 1px;
 }

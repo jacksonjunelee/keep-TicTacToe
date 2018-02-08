@@ -1,0 +1,7 @@
+<div>
+  <h1>Scoreboard</h1>
+  <div *ngIf="players && score">
+    <p *ngFor="let player of players; let i = index">{{ player }} : {{ score[i]}}</p>
+    <p>Draw : {{score[2]}}</p>
+  </div>
+</div>
