@@ -1,0 +1,10 @@
+<h1>{{ currentPlayer }}'s Turn</h1>
+<div class="flex-container">
+  <div *ngFor="let index of [0,1,2,3,4,5,6,7,8]">
+    <cell
+      [index]="index"
+      [players]="players"
+      [currentPlayer]="currentPlayer"
+    ></cell>
+  </div>
+</div>
