@@ -9,6 +9,7 @@ export class CellComponent {
   @Input() values: number[];
   @Input() currentPlayer: string;
   @Input() winnerFound: boolean;
+  @Input() idle: boolean;
   @Input() index: number;
   @Output() cellValue: EventEmitter<number> = new EventEmitter<number>();
 
@@ -21,7 +22,7 @@ export class CellComponent {
   }
 
   public outputValue(): void {
-    if (this.value || this.winnerFound) {
+    if (this.value || this.winnerFound || this.idle) {
       return;
     }
 

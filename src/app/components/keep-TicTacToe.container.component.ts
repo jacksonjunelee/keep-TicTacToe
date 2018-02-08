@@ -15,13 +15,14 @@ export class KeepTicTacToeContainerComponent implements OnInit {
   public moves = [];
   public score = [];
   public idleTime = 0;
+  public idle: boolean;
 
   constructor() {
     Observable.interval(1000).subscribe(x => {
       this.idleTime += 1;
 
       if (this.idleTime === 15) {
-        alert('Keep Playing')
+        this.idle = true;
       }
     });
   }
@@ -32,6 +33,7 @@ export class KeepTicTacToeContainerComponent implements OnInit {
     this.idleTime = 0;
     this.moves.push(`${this.currentPlayer} takes square ${index + 1}`)
 
+    // check win
     if (this.checkWin()) {
       this.updateScore();
       this.moves.push(`${this.winner} wins this round`);
@@ -42,6 +44,7 @@ export class KeepTicTacToeContainerComponent implements OnInit {
       this.moves.push('No more moves');
     }
 
+    // update player
     this.updatePlayer();
   }
 
@@ -117,6 +120,10 @@ export class KeepTicTacToeContainerComponent implements OnInit {
     this.winner = '';
     this.playableCells = 9;
     this.moves = [];
+  }
+
+  public stopIdle(): void {
+    this.idle = false;
   }
 
   public ngOnInit(): void {

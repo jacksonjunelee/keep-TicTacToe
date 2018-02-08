@@ -5,6 +5,8 @@
       <li *ngFor="let move of moves">{{move}}</li>
     </ul>
     <button *ngIf="winnerFound || !playableCells" type="button" name="button" (click)="restart()">Play Again?</button>
+    <p *ngIf="idle">Been Idle. Keep Playing</p>
+    <button *ngIf="idle" type="button" name="button" (click)="stopIdle()">Keep Playing</button>
   </div>
   <div class="board">
     <h1 class="header">{{ currentPlayer }}'s Turn</h1>
@@ -14,6 +16,7 @@
           [index]="index"
           [values]="values"
           [players]="players"
+          [idle]="idle"
           [currentPlayer]="currentPlayer"
           [winnerFound]="winnerFound"
           (cellValue)="updateValue($event, index)"
