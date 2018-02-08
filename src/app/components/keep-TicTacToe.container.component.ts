@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'keep-tictactoe-container',
@@ -14,16 +14,22 @@ export class KeepTicTacToeContainerComponent implements OnInit {
   public playableCells = 9;
   public moves = [];
   public score = [];
+  public idleTime = 0;
 
   constructor() {
-    Observable.interval(15000).subscribe(x => {
-      
+    Observable.interval(1000).subscribe(x => {
+      this.idleTime += 1;
+
+      if (this.idleTime === 15) {
+        alert('Keep Playing')
+      }
     });
   }
 
   public updateValue(value, index): void {
     this.values[index] = value;
     this.playableCells--;
+    this.idleTime = 0;
     this.moves.push(`${this.currentPlayer} takes square ${index + 1}`)
 
     if (this.checkWin()) {

@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { KeepTicTacToeComponents } from './components/index';
 
-
 @NgModule({
   declarations: [
     AppComponent,
